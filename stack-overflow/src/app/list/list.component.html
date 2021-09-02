@@ -53,18 +53,18 @@
 
     <br>
 
-    <div *ngIf="totalPages && totalPages.length>0" class="pagination">
+    <div *ngIf="totalPages && totalPages>0" class="pagination">
         <div [ngClass]="{disabled:page <= 1 }" class="page-item first-item" (click)="nextPage('first')">
             First
         </div>
         <div [ngClass]="{disabled:page <= 1}" class="page-item previous-item" (click)="nextPage('back')">
             Previous
         </div>
-        <div class="current-item">Shows {{page}} of {{totalPages.length}}</div>
-        <div [ngClass]="{disabled:page === totalPages.length}" class="page-item next-item" (click)="nextPage('next')">
+        <div class="current-item">Shows {{page}} of {{totalPages}}</div>
+        <div [ngClass]="{disabled:page === totalPages}" class="page-item next-item" (click)="nextPage('next')">
             Next
         </div>
-        <div [ngClass]="{disabled:page === totalPages.length}" class="page-item last-item" (click)="nextPage('last')">
+        <div [ngClass]="{disabled:page === totalPages}" class="page-item last-item" (click)="nextPage('last')">
             Last</div>
     </div>
 

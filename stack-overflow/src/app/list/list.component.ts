@@ -46,13 +46,13 @@ export class ListComponent implements OnInit {
           this.postList = res.length > 0 ? res[this.page] : [];
           console.log(this.postList)
 
-          this.totalPages = [...Array(this.service.getPages())];
+          this.totalPages = this.service.getPages();
           this.totalQuestions = Number(this.service.getPages()) * 10;
         });
       }
       else {
         this.postList = this.service.getList()[this.page];
-        this.totalPages = [...Array(this.service.getPages())];
+        this.totalPages = this.service.getPages();//[...Array(this.service.getPages())];
         this.totalQuestions = Number(this.service.getPages()) * 10;
       }
 
@@ -82,12 +82,12 @@ export class ListComponent implements OnInit {
         pageNum = 1;
         break;
       case 'last':
-        pageNum = this.totalPages.length;
+        pageNum = this.totalPages;
         break;
     }
 
     window.scrollTo(0, 0)
-    if (pageNum >= 1 && pageNum <= this.totalPages.length)
+    if (pageNum >= 1 && pageNum <= this.totalPages)
       this.router.navigate([""], { queryParams: { page: pageNum } });
   }
 
