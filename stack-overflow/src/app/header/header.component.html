@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <div class="flex-disp" (click)="onLogoClick()">
+        <mat-icon class="header-logo">question_answer</mat-icon>
+        Stack
+    </div>
+    <div class="flex-disp">
+        <div class="search-icon">
+            <mat-icon>search</mat-icon>
+        </div>
+        <input class="search" type="text" [formControl]="searchValue"
+        placeholder="Search..." (keyup.enter)="onClickSearch()">
+    </div>
+</mat-toolbar>

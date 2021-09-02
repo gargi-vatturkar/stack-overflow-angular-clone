@@ -1,0 +1,37 @@
+.mat-toolbar-row, .mat-toolbar-single-row {
+    padding: 0 2rem!important;
+    justify-content: space-between;
+}
+
+.flex-disp{
+    display: flex;
+}
+
+.header-logo{
+    font-size: 40px;
+    padding-bottom: 14px;
+    width: 40px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.search, .search-icon{
+    color: gray;
+    background-color: #fff;
+}
+
+.search:focus{ 
+    outline: none;
+}
+
+.search-icon{
+    width: 36px;
+    border-radius: 8px 0 0 8px;
+    padding: 8px 0 0 8px;
+}
+.search{
+    font-size: 22px;
+    width: 35vw;
+    border: none!important;
+    border-radius: 0 8px 8px 0;
+}

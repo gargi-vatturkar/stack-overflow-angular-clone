@@ -1,0 +1,13 @@
+.list-cls{
+    h2{
+        word-break: break-all;
+    }
+
+    .not-found{
+        color: gray;
+        text-align: center;
+        margin-top: 2rem;
+
+        h1{ margin-bottom: 0.25rem; }
+    }
+}

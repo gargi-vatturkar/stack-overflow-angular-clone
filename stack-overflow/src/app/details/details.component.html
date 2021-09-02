@@ -1,0 +1,100 @@
+<div class="wrapper-cls" *ngIf="postDetail">
+    <div class="back-cls">
+        <mat-icon (click)="onClickBack()">arrow_back</mat-icon>
+        <div class="title">{{postDetail.title}}</div>
+    </div>
+
+    <br>
+    <div class="meta-wrapper">
+        <div class="meta">Asked {{postDetail.asked_date}} mins ago</div>
+        <div class="meta">Active {{postDetail.active_date}} mins ago</div>
+        <div class="meta">Viewed {{postDetail.view_count}} times</div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="quest-cls">
+        <div [innerHTML]="postDetail.body"></div>
+
+        <div class="label-wrapper">
+            <div class="label" *ngFor="let tag of postDetail.tags">
+                {{tag}}
+            </div>
+        </div>
+
+        <br>
+
+        <div class="flex-disp">
+            <div class="meta-wrapper" style="padding: 0">
+                <div class="meta">Edited {{postDetail.edited_date}} mins ago</div>
+            </div>
+            <div class="user-card user-cls">
+                <div class="user-icon">
+                    <img src="{{postDetail.owner.profile_image}}" alt="user-profile-image">
+                </div>
+                <div class="user-dets">
+                    <div>
+                        <a href="{{postDetail.owner.link}}" target="_blank">{{postDetail.owner.display_name}}</a>
+                    </div>
+                    <div class="bold">{{postDetail.owner.reputation}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="no-data" *ngIf="postDetail.answer_count==0">
+        <h2>Know someone who can answer? Share a link to this
+            <a href="{{postDetail.link}}" target="_blank">question</a>
+        </h2>
+    </div>
+
+    <div *ngIf="answerList.length>0">
+        <div *ngIf="answerList.length>10">
+            <h2>Top 10 Answers</h2>
+        </div>
+
+        <div *ngIf="answerList.length<=10">
+            <h2>Answers</h2>
+        </div>
+
+        <div class="card" *ngFor="let post of answerList">
+            <div class="card-inner">
+                <div class="votes-cls">
+                    <div class="votes-inner">
+                        <h2>{{post.score}}</h2> votes
+                    </div>
+                    <div class="small-cls">{{post.view_count}} views</div>
+                </div>
+
+                <div class="grid-disp">
+                    <div [innerHTML]="post.body">
+                    </div>
+
+                    <div class="label-wrapper">
+                        <div class="label" *ngFor="let tag of post.tags">{{tag}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-cls">
+                <div class="user-icon">
+                    <img src="{{post.owner.profile_image}}" alt="user-profile-image">
+                </div>
+                <div class="user-dets">
+                    <div>
+                        <a href="{{post.owner.link}}" target="_blank">{{post.owner.display_name}}</a>
+                    </div>
+                    <div class="bold">{{post.owner.reputation}}</div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+    <!-- <h2>Top 5 Answers</h2> -->
+
+</div>
